@@ -130,6 +130,20 @@ int main()
 	scanf("%d",&value4);
 	
 	head = InsertAtEnd(head, value4);
+
+	printf("\nEnter the data of the node after which you need to insert a new node: ");
+    	scanf("%d", &target);
+    	printf("\nEnter the value you need to enter: ");
+    	scanf("%d", &val5);
+    	struct node* temp = head;
+    	while (temp != NULL && temp->data != target) {
+        	temp = temp->next;
+    	}
+    	if (temp != NULL) {
+        	head = InsertAfterNode(head, temp, val5);
+    	} else {
+        	printf("Node with data %d not found!\n", target);
+    	}
 	
 	printf("\n\nList after Insertion: ");
 	printList(head);
